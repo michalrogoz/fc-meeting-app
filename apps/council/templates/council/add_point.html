@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" role="form" class="form-horizontal">
+        {% for field in form.visible_fields %}
+            <div
+                 class="form-group{% if field.errors %} has-error{% endif %}">
+                <label for="div_{{ field.html_name }}" class="col-sm-2 control-label">{{ field.label_tag }}</label>
+                <div id="div_{{ field.html_name }}" class="col-sm-3">
+                    {{ field }}
+                </div>
+                <div class="text-muted pull-right">
+                    <small>{{ field.help_text }}</small>
+                </div>
+                <div class="help-block">
+                    {{ field.errors }}
+                </div>
+            </div>
+        {% endfor %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        {% csrf_token %}
+        <div class="form-group col-sm-1">
+            <input type="submit" value="Dodaj" class="btn btn-primary" />
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>
+	{% block title %}Rada Wydział Elektroniki{% endblock %}
+	</title>
+
+
+	<link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" >
+
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+	<link rel="stylesheet" href="{% static 'css/navbar-custom.css' %}"/>
+
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
+	<link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/examples/dashboard/dashboard.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.css"/>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-custom navbar-fixed-top">
+	{% include 'menu.html' %}
+</nav>
+<div class="container-fluid">
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		{% block content %}
+		{% endblock %}
+	</div>
+</div>
+
+{% block scripts %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+	</script>
+	<script src="http://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js">
+
+	</script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="http://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js">
+	</script>
+	<script>
+		$(function (){
+			$('.form-group input').each(function() {
+				$(this).addClass('form-control');
+			});
+			$('.form-group textarea').each(function() {
+				$(this).addClass('form-control');
+			});
+			$('.form-group checkbox').each(function() {
+				$(this).addClass('form-control');
+			});
+			$('.form-group select').each(function() {
+				$(this).addClass('form-control');
+			});
+		});
+	</script>
+{% endblock %}
+</body>
+</html>
+
+
+

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <h1>Rada {{ object.code }}</h1>
+        <h3><strong>Data: </strong>{{ object.date|date:'d.m.Y' }}</h3>
+        <h3><strong>Godzina: </strong>{{ object.date|time:'G:i' }}</h3>
+
+        <a class="btn btn-primary" href="{% url 'add_point' object.pk %}">
+            <i class="fa fa-plus"></i> Dodaj punkt
+        </a>
+        <h3>Punkty:</h3>
+        <table class="table table-bordered">
+            <tr>
+                <td>Opiekun</td>
+                <td>Tytuł</td>
+                <td>Tajne głosowanie</td>
+                <td>Akcje</td>
+            </tr>
+            {% for point in point_list %}
+                <tr>
+                    <td>{{ point.owner }}</td>
+                    <td>{{ point.title }}</td>
+                    <td>
+                        {% if point.is_secret %}Tak
+                        {% else %}Nie
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'point_detail' point.pk %}">
+                            <i class="fa fa-eye" aria-hidden="true" value="Szczegóły"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
