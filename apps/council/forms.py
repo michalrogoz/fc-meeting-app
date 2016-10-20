@@ -3,7 +3,7 @@
 from datetime import datetime
 
 from django import forms
-from bootstrap3_datetime.widget import DateTimePicker
+from bootstrap3_datetime.widgets import DateTimePicker
 
 from functools import partial
 

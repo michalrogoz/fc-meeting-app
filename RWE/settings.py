@@ -39,9 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.staticfiles',
-
     'bootstrap3',
-
+    'bootstrap3_datetime',
     'RWE',
     'apps.council'
 )
